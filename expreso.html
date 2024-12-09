@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutrifit</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+    <style>
+        #addedToCartAlert {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px 0;
+            animation: showAlert 0.5s ease-in-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        @keyframes showAlert {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        #confirmationModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; 
+        }
+
+        #confirmationModal .modal-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-in-out;
+            width: 300px; 
+        }
+
+        #confirmationModal button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #confirmationModal button:hover {
+            background-color: #45a049;
+        }
+
+        #confirmationModal button.no {
+            background-color: #f44336;
+        }
+
+        #confirmationModal button.no:hover {
+            background-color: #e53935;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        #cartModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cartModal .modal-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+        }
+
+        #cartModal .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        #cartModal button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #cartModal button:hover {
+            background-color: #45a049;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .remove-item {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .remove-item:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">915-115-289</span>
+                    </div>
+                </div>
+                <div class="container-logo">
+                    <h1><a href="index.html">Nutrifit</a></h1>
+                </div>
+                <div class="container-user">
+                    <div class="container-user">
+                        <a href="Login.html" target="_blank">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                        <i class="fa-solid fa-basket-shopping" onclick="viewCart()"></i>
+                        <div class="content-shopping-cart" onclick="viewCart()">
+                            <span class="text">Carrito</span>
+                            <span class="number" id="cart-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cafe.html">Café</a></li>
+                    <li><a href="expreso.html">Expresos</a></li>
+                    <li><a href="bebidas.html">Bebidas frías</a></li>
+                    <li><a href="Postres.html">Postres</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container top-categories">
+        <h1 class="heading-1">Bebidas frías</h1>
+    </section>
+
+    <div class="container-products" id="product-list">
+		<div class="card-product" onclick="openProductModal('Mocca and Waffle', 'S/14.00', 'img/bebida1.png', 'Este es un delicioso Café Irish.')">
+            <div class="container-img">
+                <img src="img/expres1.png" alt="Mocca and Waffle" />
+            </div>
+            <div class="content-card-product">
+                <h3>Mocca and Waffle</h3>
+                <p class="description">Café Mocca con capa de chantilly, mini waffles fritos, brownies, fresas, arándanos y miel de abeja.</p>
+                <span class="add-cart" onclick="promptAddToCart('Mocca and Waffle', 'S/14.00')">Comprar</span>
+                <p class="price">S/14.00</p>
+            </div>
+        </div>
+
+        <div class="card-product" onclick="openProductModal('Mocca', 'S/13.00', 'img/bebida2.png', 'Jugo fresco de papaya.')">
+            <div class="container-img">
+                <img src="img/expres2.png" alt="Mocca" />
+            </div>
+            <div class="content-card-product">
+                <h3>Mocca</h3>
+                <p class="description"></p>
+                <span class="add-cart" onclick="promptAddToCart('Mocca', '$S/13.00')">Comprar</span>
+                <p class="price">S/13.00</p>
+            </div>
+        </div>
+
+        <div class="card-product" onclick="openProductModal('Macchiato', 'S/14.00', 'img/bebida3.png', 'Jugo de piña 12 oz.')">
+            <div class="container-img">
+                <img src="img/expres3.png" alt="Macchiato" />
+            </div>
+            <div class="content-card-product">
+                <h3>Macchiato</h3>
+                <p class="description"></p>
+                <span class="add-cart" onclick="promptAddToCart('Macchiato', 'S/14.00')">Comprar</span>
+                <p class="price">S/14.00</p>
+            </div>
+        </div>
+
+        <div class="card-product" onclick="openProductModal('Irish Coffee', 'S/16.00', 'img/bebida4.png', 'Jugo de mango 12 oz.')">
+            <div class="container-img">
+                <img src="img/expres4.png" alt="Irish Coffee" />
+            </div>
+            <div class="content-card-product">
+                <h3>Irish Coffee</h3>
+                <p class="description">Un jugo de mango fresco para disfrutar todo el año.</p>
+                <span class="add-cart" onclick="promptAddToCart('Irish Coffee', 'S/16.00')">Comprar</span>
+                <p class="price">S/16.00</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="addedToCartAlert">Producto agregado al carrito</div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <button onclick="closeCart()">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="confirmationModal">
+        <div class="modal-content">
+            <p>¿Estás seguro de eliminar este producto del carrito?</p>
+            <div>
+                <button class="yes" onclick="removeFromCart()">Sí</button>
+                <button class="no" onclick="closeConfirmationModal()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let productToRemove = null;
+
+        function promptAddToCart(name, price) {
+            cart.push({ name, price });
+            updateCartCount();
+            showAddedToCartAlert();
+        }
+
+        function updateCartCount() {
+            document.getElementById("cart-count").innerText = `(${cart.length})`;
+        }
+
+        function showAddedToCartAlert() {
+            const alert = document.getElementById("addedToCartAlert");
+            alert.style.display = "block";
+            setTimeout(() => {
+                alert.style.display = "none";
+            }, 3000);
+        }
+
+        function viewCart() {
+            const cartModal = document.getElementById("cartModal");
+            const cartItemsDiv = document.getElementById("cart-items");
+
+            cartItemsDiv.innerHTML = "";
+
+            cart.forEach((product, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                    <span>${product.name} - ${product.price}</span>
+                    <button class="remove-item" onclick="confirmRemove(${index})">Eliminar</button>
+                `;
+                cartItemsDiv.appendChild(cartItem);
+            });
+
+            cartModal.style.display = "flex";
+        }
+
+        function closeCart() {
+            const cartModal = document.getElementById("cartModal");
+            cartModal.style.display = "none";
+        }
+
+        function confirmRemove(index) {
+            productToRemove = index;
+            const confirmationModal = document.getElementById("confirmationModal");
+            confirmationModal.style.display = "flex";
+        }
+
+        function removeFromCart() {
+            if (productToRemove !== null) {
+                cart.splice(productToRemove, 1);
+                updateCartCount();
+                closeCart();
+            }
+            closeConfirmationModal();
+        }
+
+        function closeConfirmationModal() {
+            const confirmationModal = document.getElementById("confirmationModal");
+            confirmationModal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
