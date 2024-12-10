@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nosotros - Nutrifit</title>
+    <style>
+      /* Estilos generales para la sección de descripción */
+      .container.description {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .heading-1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .subheading {
+        font-size: 1.8rem;
+        color: #2c6e2f;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      ul.offerings-list {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      ul.offerings-list li {
+        margin-bottom: 10px;
+      }
+
+      ul.offerings-list li strong {
+        color: #2c6e2f;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      p strong {
+        color: #2c6e2f;
+      }
+
+      /* Estilos para la sección de dirección */
+      .container-direccion {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .direccion-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .map-container {
+        margin-top: 20px;
+      }
+
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 450px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .container.description,
+        .container-direccion {
+          padding: 15px;
+        }
+
+        .heading-1,
+        .direccion-title {
+          font-size: 2rem;
+        }
+
+        .subheading {
+          font-size: 1.5rem;
+        }
+
+        .intro-text,
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container-hero">
+        <div class="container hero">
+          <div class="customer-support">
+            <div class="content-customer-support">
+              <span class="text">Soporte al cliente</span>
+              <span class="number">915-115-289</span>
+            </div>
+          </div>
+
+          <div class="container-logo">
+            <h1><a href="index.html">Nutrifit</a></h1>
+          </div>
+
+          <div class="container-user">
+            <a href="Login.html" target="_blank">
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <i class="fa-solid fa-basket-shopping"></i>
+            <div class="content-shopping-cart">
+              <span class="text">Carrito</span>
+              <span class="number">(0)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-navbar">
+        <nav class="navbar container">
+          <i class="fa-solid fa-bars"></i>
+          <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cafe.html">Café</a></li>
+            <li><a href="expreso.html">Expresos</a></li>
+            <li><a href="bebidas.html">Bebidas frías</a></li>
+            <li><a href="postres.html">Postres</a></li>
+          </ul>
+
+          <form class="search-form">
+            <input type="search" placeholder="Buscar..." />
+            <button class="btn-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- Sección de dirección y mapa -->
+    <section class="container-direccion">
+      <h2 class="direccion-title">Encuéntranos en</h2>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2238.800889719762!2d-76.98051232524502!3d-12.147577052177846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1733828954954!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container container-footer">
+        <div class="menu-footer">
+          <div class="contact-info">
+            <p class="title-footer">Información de Contacto</p>
+            <ul>
+              <li><a href="direccion.html">Direccion</a></li>
+              <li>Teléfono: 915-115-289</li>
+              <li>Correo: contacto@nutrifit.com</li>
+            </ul>
+          </div>
+
+          <div class="information">
+            <p class="title-footer">Información</p>
+            <ul>
+              <li><a href="Nosotros.html">Acerca de Nosotros</a></li>
+              <li><a href="politica.html">Políticas de Privacidad</a></li>
+              <li><a href="reserva.html">Realiza tu reseva</a></li>
+            </ul>
+          </div>
+
+          <div class="newsletter">
+            <p class="title-footer">Boletín informativo</p>
+            <div class="content">
+              <p>
+                Suscríbete a nuestros boletines ahora y mantente al día con nuevas colecciones y ofertas exclusivas.
+              </p>
+              <input type="email" placeholder="Ingresa el correo aquí...">
+              <button>Suscríbete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+  </body>
+</html>
