@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nosotros - Nutrifit</title>
+    <style>
+      /* Estilos generales para la sección de descripción */
+      .container.description {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .heading-1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .subheading {
+        font-size: 1.8rem;
+        color: #2c6e2f;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      ul.offerings-list {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      ul.offerings-list li {
+        margin-bottom: 10px;
+      }
+
+      ul.offerings-list li strong {
+        color: #2c6e2f;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      p strong {
+        color: #2c6e2f;
+      }
+
+      /* Estilos para la sección de dirección */
+      .container-direccion {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .direccion-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .map-container {
+        margin-top: 20px;
+      }
+
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 450px;
+      }
+
+      /* Estilos para la sección de reserva */
+      .container-reserva {
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .reserva-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .form-reserva {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .form-reserva input,
+      .form-reserva button {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-reserva button {
+        background-color: #2c6e2f;
+        color: white;
+        cursor: pointer;
+      }
+
+      .form-reserva button:hover {
+        background-color: #244f29;
+      }
+
+      /* Estilos para el horario */
+      .horario-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px; /* Ajusta la altura según sea necesario */
+        background-color: #f0f0f0; /* Opcional: fondo para resaltar */
+        margin-bottom: 30px;
+      }
+
+      .horario-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #2c6e2f;
+        margin-bottom: 15px;
+      }
+
+      .horario-text {
+        font-size: 1.1rem;
+        color: #444;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 768px) {
+        .container.description,
+        .container-direccion,
+        .container-reserva {
+          padding: 15px;
+        }
+
+        .heading-1,
+        .direccion-title,
+        .reserva-title {
+          font-size: 2rem;
+        }
+
+        .subheading {
+          font-size: 1.5rem;
+        }
+
+        .intro-text,
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container-hero">
+        <div class="container hero">
+          <div class="customer-support">
+            <div class="content-customer-support">
+              <span class="text">Soporte al cliente</span>
+              <span class="number">915-115-289</span>
+            </div>
+          </div>
+
+          <div class="container-logo">
+            <h1><a href="index.html">Nutrifit</a></h1>
+          </div>
+
+          <div class="container-user">
+            <a href="Login.html" target="_blank">
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <i class="fa-solid fa-basket-shopping"></i>
+            <div class="content-shopping-cart">
+              <span class="text">Carrito</span>
+              <span class="number">(0)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-navbar">
+        <nav class="navbar container">
+          <i class="fa-solid fa-bars"></i>
+          <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cafe.html">Café</a></li>
+            <li><a href="expreso.html">Expresos</a></li>
+            <li><a href="bebidas.html">Bebidas frías</a></li>
+            <li><a href="postres.html">Postres</a></li>
+          </ul>
+
+          <form class="search-form">
+            <input type="search" placeholder="Buscar..." />
+            <button class="btn-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sección de horario centrado -->
+    <section class="horario-container">
+      <div>
+        <h2 class="horario-title">Horario de atención</h2>
+        <p class="horario-text">
+          DOMINGO A JUEVES: 8 AM a 10 PM <br>
+          VIERNES Y SÁBADO: 8 AM a 11 PM
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección de realizar reserva -->
+    <section class="container-reserva">
+      <h2 class="reserva-title">Realiza tu reserva</h2>
+      <form class="form-reserva" id="reservaForm">
+        <input type="text" id="nombre" placeholder="Tu nombre" required />
+        <input type="date" id="fecha" required />
+        <input type="time" id="hora" required />
+        <button type="button" onclick="realizarReserva()">Realizar reserva</button>
+      </form>
+      <a href="direccion.html">
+        <button onclick="window.location.href='#container-direccion'">Presiona aquí para la dirección</button>
+      </a>
+    </section>
+
+    <footer class="footer">
+      <div class="container container-footer">
+        <div class="menu-footer">
+          <div class="contact-info">
+            <p class="title-footer">Información de Contacto</p>
+            <ul>
+              <li><a href="direccion.html">Direccion</a></li>
+              <li>Teléfono: 915-115-289</li>
+              <li>Correo: contacto@nutrifit.com</li>
+            </ul>
+          </div>
+
+          <div class="information">
+            <p class="title-footer">Información</p>
+            <ul>
+              <li><a href="Nosotros.html">Acerca de Nosotros</a></li>
+              <li><a href="politica.html">Políticas de Privacidad</a></li>
+              <li><a href="reserva.html">Realiza tu reseva</a></li>
+            </ul>
+          </div>
+
+          <div class="newsletter">
+            <p class="title-footer">Boletín informativo</p>
+            <div class="content">
+              <p>
+                Suscríbete a nuestros boletines ahora y mantente al día con nuevas colecciones y ofertas exclusivas.
+              </p>
+              <input type="email" placeholder="Ingresa el correo aquí...">
+              <button>Suscríbete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function realizarReserva() {
+        // Mostrar la alerta al realizar la reserva
+        alert("Tu reserva se ha registrado.");
+      }
+    </script>
+
+    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+  </body>
+</html>
